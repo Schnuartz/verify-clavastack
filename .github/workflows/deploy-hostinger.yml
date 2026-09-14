@@ -27,7 +27,8 @@ jobs:
           HOSTINGER_DEPLOY_WEBHOOK: ${{ secrets.HOSTINGER_DEPLOY_WEBHOOK }}
         run: |
           if [ -z "$HOSTINGER_DEPLOY_WEBHOOK" ]; then
-            echo 'Hostinger webhook is not configured yet; deployment skipped.'
+            echo '::warning::Hostinger webhook is not configured; no site was deployed.'
+            echo 'Deployment skipped: configure the HOSTINGER_DEPLOY_WEBHOOK secret after the first Hostinger Git deployment.' >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
           if [ "$(git rev-parse HEAD)" != "$VALIDATED_SHA" ]; then
