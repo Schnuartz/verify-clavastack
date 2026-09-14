@@ -4,9 +4,5 @@
   ExpiresActive Off
 </IfModule>
 <IfModule mod_headers.c>
-  Header onsuccess unset Cache-Control
-  Header always unset Cache-Control
   Header always set Cache-Control "no-cache, must-revalidate"
-  Header onsuccess unset Expires
-  Header always unset Expires
 </IfModule>
