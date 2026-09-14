@@ -37,7 +37,9 @@ The static site consists of `index.html`, `app.js`, `style.css`, `release.json`,
 
 GitHub Pages availability depends on repository visibility and the owner's plan. A private GitHub repository on GitHub Free cannot be used for Pages, while a public repository can. Changing visibility or connecting a custom domain is an owner decision; neither is done by these files.
 
-For Hostinger's hPanel Git deployment, connect the `main` branch to the verified document root of the dedicated subdomain. After its first deployment, store Hostinger's auto-deployment webhook URL as the repository Actions secret `HOSTINGER_DEPLOY_WEBHOOK`. The included deployment workflow calls that webhook only after the latest `main` commit passes the catalog and source checks. Never commit the webhook URL or hosting credentials. A successful webhook call only requests a Hostinger deployment; confirm the deployment log and live HTTPS page separately.
+For Hostinger's legacy hPanel Git form on the `clavastack.com` hosting account, connect the `main` branch and set **Install Path to `verify`**, relative to that account's `public_html`. The subdomain's document root was verified in hPanel as `.../domains/clavastack.com/public_html/verify` on 2026-09-14. Do not leave Install Path empty, since that targets the main site's `public_html`. Check the current subdomain mapping before deployment, and remove Hostinger's `default.php` placeholder from `verify` only after confirming there are no user files in that target.
+
+After its first deployment, store Hostinger's auto-deployment webhook URL as the repository Actions secret `HOSTINGER_DEPLOY_WEBHOOK`. The included deployment workflow calls that webhook only after the latest `main` commit passes the catalog and source checks. Never commit the webhook URL or hosting credentials. A successful webhook call only requests a Hostinger deployment; confirm the deployment log and live HTTPS page separately.
 
 ## Update the release catalog
 
