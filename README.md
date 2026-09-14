@@ -33,7 +33,7 @@ The local page makes one live request to the GitHub releases API for newest-vers
 
 ## Publishing
 
-The static site consists of `index.html`, `app.js`, `style.css`, `release.json`, `assets/`, `vendor/`, `keys/`, `signatures/` and the linked Markdown documents. Serve those files together at a path ending in `/` so relative URLs resolve correctly. Use HTTPS and make sure the web host does not rewrite or cache old `release.json` indefinitely. The included CI workflow checks every committed signed manifest, JavaScript syntax, local image paths and the repository link on pushes and pull requests. The live deployment is configured for Hostinger's `public_html/verify` directory; its webhook URL is stored as the GitHub Actions secret `HOSTINGER_DEPLOY_WEBHOOK`.
+The static site consists of `index.html`, `app.js`, `style.css`, `release.json`, `assets/`, `vendor/`, `keys/`, `signatures/` and the linked Markdown documents. Serve those files together at a path ending in `/` so relative URLs resolve correctly. Use HTTPS. The scoped `.htaccess` asks Hostinger to revalidate site files after each push; the versioned CSS/JS links in `index.html` also break the previous one-week browser cache. `release.json` is fetched with `cache: 'no-store'`. The included CI workflow checks every committed signed manifest, JavaScript syntax, local image paths and the repository link on pushes and pull requests. The live deployment is configured for Hostinger's `public_html/verify` directory; its webhook URL is stored as the GitHub Actions secret `HOSTINGER_DEPLOY_WEBHOOK`.
 
 The repository is public for independent source review, but the production site is served by Hostinger rather than GitHub Pages.
 

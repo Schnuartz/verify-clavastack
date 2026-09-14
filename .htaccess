@@ -1,0 +1,12 @@
+# The release catalog and UI change automatically through GitHub deployment.
+# Revalidate files instead of serving week-old browser copies after a push.
+<IfModule mod_expires.c>
+  ExpiresActive Off
+</IfModule>
+<IfModule mod_headers.c>
+  Header onsuccess unset Cache-Control
+  Header always unset Cache-Control
+  Header always set Cache-Control "no-cache, must-revalidate"
+  Header onsuccess unset Expires
+  Header always unset Expires
+</IfModule>
