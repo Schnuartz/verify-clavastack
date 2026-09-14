@@ -1,0 +1,954 @@
+{
+  "schema": 1,
+  "generatedAt": "2026-09-14T09:18:18+00:00",
+  "source": "https://github.com/cryptoadvance/specter-diy",
+  "keys": {
+    "stepan": {
+      "fingerprint": "6F16E354F83393D6E52EC25F36ED357AB24B915F",
+      "label": "Stepan Snigirev",
+      "source": "https://stepansnigirev.com/ss-specter-release.asc",
+      "file": "keys/stepan.asc"
+    },
+    "specter2026": {
+      "fingerprint": "9DC33CA830589DE3B3225C26EEF5756B2EA42349",
+      "label": "Specter Signer 2026",
+      "source": "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x9DC33CA830589DE3B3225C26EEF5756B2EA42349",
+      "file": "keys/specter2026.asc"
+    },
+    "mike": {
+      "fingerprint": "F2DBC4C614C113E2B15F879ADD5C1264EBD645BE",
+      "label": "Mike Tolkachev",
+      "source": "https://keys.openpgp.org/vks/v1/by-fingerprint/F2DBC4C614C113E2B15F879ADD5C1264EBD645BE",
+      "file": "keys/mike.asc"
+    }
+  },
+  "releases": [
+    {
+      "tag": "v1.10.5",
+      "date": "2026-09-06T02:58:13Z",
+      "prerelease": false,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.10.5",
+      "authenticity": "upstream-signed-manifest",
+      "signer": "mike",
+      "manifest": "signatures/v1.10.5/sha256.signed.txt",
+      "files": [
+        {
+          "kind": "initial",
+          "name": "initial_firmware_v1.10.5.bin",
+          "sha256": "b46b6b3ea256bc9f9d4da4250c0d6ffdfc1800cbb44a8845810e045c5e8cae01",
+          "size": 1966048,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.10.5/initial_firmware_v1.10.5.bin"
+        },
+        {
+          "kind": "upgrade",
+          "name": "specter_upgrade_v1.10.5.bin",
+          "sha256": "fcd23591cd990cc7973861916e5d398ddd8f3f4dea226035d236ffe0e30bb0ea",
+          "size": 1385352,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.10.5/specter_upgrade_v1.10.5.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.10.3",
+      "date": "2026-05-01T15:05:32Z",
+      "prerelease": false,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.10.3",
+      "authenticity": "upstream-signed-manifest",
+      "signer": "specter2026",
+      "manifest": "signatures/v1.10.3/sha256.signed.txt",
+      "files": [
+        {
+          "kind": "initial",
+          "name": "initial_firmware_v1.10.3.bin",
+          "sha256": "3c14d8d64eb1b035eae4c8aaa0c521b298aa53b1c46586db1ea427cd1e35a232",
+          "size": 1966048,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.10.3/initial_firmware_v1.10.3.bin"
+        },
+        {
+          "kind": "upgrade",
+          "name": "specter_upgrade_v1.10.3.bin",
+          "sha256": "df98e526ab6359e49691a68d3a5800470e8656da9bbf6e32be37198108a24f44",
+          "size": 1469068,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.10.3/specter_upgrade_v1.10.3.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.9.0",
+      "date": "2024-05-30T15:45:03Z",
+      "prerelease": false,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.9.0",
+      "authenticity": "upstream-signed-manifest",
+      "signer": "stepan",
+      "manifest": "signatures/v1.9.0/sha256.signed.txt",
+      "files": [
+        {
+          "kind": "initial",
+          "name": "initial_firmware_v1.9.0.bin",
+          "sha256": "8c1c479e0b118dc9815c99a0c1ae3527c2c0ef755c87fc1dfd77e87575ad27e5",
+          "size": 1966048,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.9.0/initial_firmware_v1.9.0.bin"
+        },
+        {
+          "kind": "upgrade",
+          "name": "specter_upgrade_v1.9.0.bin",
+          "sha256": "bb94699a9c53748763b66d7a3c26b41654ce81510886d0257e4296f1e2c529c6",
+          "size": 1360312,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.9.0/specter_upgrade_v1.9.0.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.8.3",
+      "date": "2022-11-16T22:43:03Z",
+      "prerelease": false,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.8.3",
+      "authenticity": "upstream-signed-manifest",
+      "signer": "stepan",
+      "manifest": "signatures/v1.8.3/sha256.signed.txt",
+      "files": [
+        {
+          "kind": "initial",
+          "name": "initial_firmware_v1.8.3.bin",
+          "sha256": "1c9e65c99e3638bee1117df4d87178a538a872513e66776a1ed637726112e858",
+          "size": 1966048,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.8.3/initial_firmware_v1.8.3.bin"
+        },
+        {
+          "kind": "upgrade",
+          "name": "specter_upgrade_v1.8.3.bin",
+          "sha256": "a6ad0a0b55f406481db354397652a28dd4a4cb1808d226865df60cfabdd9d63f",
+          "size": 1345080,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.8.3/specter_upgrade_v1.8.3.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.8.2",
+      "date": "2022-11-08T19:42:49Z",
+      "prerelease": false,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.8.2",
+      "authenticity": "upstream-signed-manifest",
+      "signer": "stepan",
+      "manifest": "signatures/v1.8.2/sha256.signed.txt",
+      "files": [
+        {
+          "kind": "initial",
+          "name": "initial_firmware_v1.8.2.bin",
+          "sha256": "566fe248b13c178831b37264a7eb7c7cf1a2d51c2e764b714df6f7bcee68c7ba",
+          "size": 1966048,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.8.2/initial_firmware_v1.8.2.bin"
+        },
+        {
+          "kind": "upgrade",
+          "name": "specter_upgrade_v1.8.2.bin",
+          "sha256": "d3b188106397ff9c63fdc0705d32f9648886958bc48e33da96e5201806b00f6e",
+          "size": 1343816,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.8.2/specter_upgrade_v1.8.2.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.8.1",
+      "date": "2022-11-05T23:05:25Z",
+      "prerelease": false,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.8.1",
+      "authenticity": "upstream-signed-manifest",
+      "signer": "stepan",
+      "manifest": "signatures/v1.8.1/sha256.signed.txt",
+      "files": [
+        {
+          "kind": "initial",
+          "name": "initial_firmware_v1.8.1.bin",
+          "sha256": "5db2811cb87feb16cb07b45b77f8d58b631ccde4a5b864fa1f0bdd2d6fcc2488",
+          "size": 1966048,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.8.1/initial_firmware_v1.8.1.bin"
+        },
+        {
+          "kind": "upgrade",
+          "name": "specter_upgrade_v1.8.1.bin",
+          "sha256": "9bf383fc79d6ab7adfc016987aa19167ff64b9cf5af92f096f7d968747badfdf",
+          "size": 1343816,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.8.1/specter_upgrade_v1.8.1.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.8.0",
+      "date": "2022-10-16T19:14:24Z",
+      "prerelease": false,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.8.0",
+      "authenticity": "upstream-signed-manifest",
+      "signer": "stepan",
+      "manifest": "signatures/v1.8.0/sha256.signed.txt",
+      "files": [
+        {
+          "kind": "initial",
+          "name": "initial_firmware_v1.8.0.bin",
+          "sha256": "eb2cd068f08e20e65ca364676949ecf2b4da8e6efd1fea43af25656c7eadcc36",
+          "size": 1966048,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.8.0/initial_firmware_v1.8.0.bin"
+        },
+        {
+          "kind": "upgrade",
+          "name": "specter_upgrade_v1.8.0.bin",
+          "sha256": "b43a77b21ec890ff40ad1c65e94f1df9aee5207c5b9ee1e8693040401548a379",
+          "size": 1342472,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.8.0/specter_upgrade_v1.8.0.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.7.1",
+      "date": "2022-08-21T11:04:39Z",
+      "prerelease": false,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.7.1",
+      "authenticity": "upstream-signed-manifest",
+      "signer": "stepan",
+      "manifest": "signatures/v1.7.1/sha256.signed.txt",
+      "files": [
+        {
+          "kind": "initial",
+          "name": "initial_firmware_v1.7.1.bin",
+          "sha256": "fbeecb5eb39183c104601fb1bf93b260d9bda024b0ccba5164052504cd35ac99",
+          "size": 1966048,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.7.1/initial_firmware_v1.7.1.bin"
+        },
+        {
+          "kind": "upgrade",
+          "name": "specter_upgrade_v1.7.1.bin",
+          "sha256": "b18de36064bcf995ff9c559a48135544a2f69dbaf734978bd6cdf6c0091922bd",
+          "size": 1340112,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.7.1/specter_upgrade_v1.7.1.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.7.0",
+      "date": "2022-07-10T20:28:06Z",
+      "prerelease": false,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.7.0",
+      "authenticity": "upstream-signed-manifest",
+      "signer": "stepan",
+      "manifest": "signatures/v1.7.0/sha256.signed.txt",
+      "files": [
+        {
+          "kind": "initial",
+          "name": "initial_firmware_v1.7.0.bin",
+          "sha256": "3832f5c7bbf281094da6a3b0b7270edf7ca3f92241ec1d13f0ba0d5f79748f5e",
+          "size": 1966048,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.7.0/initial_firmware_v1.7.0.bin"
+        },
+        {
+          "kind": "upgrade",
+          "name": "specter_upgrade_v1.7.0.bin",
+          "sha256": "dd4b5ba178bb195a7ab08742f21037c5c2a3dd1b70ee5ea98318e45dbd21008f",
+          "size": 1336144,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.7.0/specter_upgrade_v1.7.0.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.6.2",
+      "date": "2021-12-23T10:57:59Z",
+      "prerelease": false,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.6.2",
+      "authenticity": "upstream-signed-manifest",
+      "signer": "stepan",
+      "manifest": "signatures/v1.6.2/sha256.signed.txt",
+      "files": [
+        {
+          "kind": "initial",
+          "name": "initial_firmware_v1.6.2.bin",
+          "sha256": "72d349a62beda2403bf13f8a6c28542773290f4e77df63daa8ffecfd5e2a5da5",
+          "size": 1966048,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.6.2/initial_firmware_v1.6.2.bin"
+        },
+        {
+          "kind": "upgrade",
+          "name": "specter_upgrade_v1.6.2.bin",
+          "sha256": "5a5cd96c6f7c5b8a9f77e5cd930c4f2ffd7e8834f9cd9721d63c7631ba3bc3f2",
+          "size": 1313320,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.6.2/specter_upgrade_v1.6.2.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.6.1",
+      "date": "2021-10-27T11:30:06Z",
+      "prerelease": false,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.6.1",
+      "authenticity": "upstream-signed-manifest",
+      "signer": "stepan",
+      "manifest": "signatures/v1.6.1/sha256.signed.txt",
+      "files": [
+        {
+          "kind": "initial",
+          "name": "initial_firmware_v1.6.1.bin",
+          "sha256": "22920eec3d4bda5d11450be04582cacc791fca06bdcbc74599b0247518ebd5c8",
+          "size": 1966048,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.6.1/initial_firmware_v1.6.1.bin"
+        },
+        {
+          "kind": "upgrade",
+          "name": "specter_upgrade_v1.6.1.bin",
+          "sha256": "4c844102aee12988cd1ed5c6b9b444a6cf286ca02ce29a6ddc108cd14c36ce67",
+          "size": 1313320,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.6.1/specter_upgrade_v1.6.1.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.6.0",
+      "date": "2021-08-28T17:41:48Z",
+      "prerelease": false,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.6.0",
+      "authenticity": "upstream-signed-manifest",
+      "signer": "stepan",
+      "manifest": "signatures/v1.6.0/sha256.signed.txt",
+      "files": [
+        {
+          "kind": "initial",
+          "name": "initial_firmware_v1.6.0.bin",
+          "sha256": "a6ab8cd58314182479aaf9392f281f5e0884237d107189d1eb593bf8472b869f",
+          "size": 1966048,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.6.0/initial_firmware_v1.6.0.bin"
+        },
+        {
+          "kind": "upgrade",
+          "name": "specter_upgrade_v1.6.0.bin",
+          "sha256": "ccd75ddbaf7a880f7ed6116723841ca68bece1e5b5118fdcf96552db88c86ebc",
+          "size": 1311528,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.6.0/specter_upgrade_v1.6.0.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.5.6",
+      "date": "2021-06-19T12:40:03Z",
+      "prerelease": false,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.5.6",
+      "authenticity": "upstream-signed-manifest",
+      "signer": "stepan",
+      "manifest": "signatures/v1.5.6/sha256.signed.txt",
+      "files": [
+        {
+          "kind": "initial",
+          "name": "initial_firmware_v1.5.6.bin",
+          "sha256": "9f6d20b9eece73303b0b504316c57ee2e1e33c6ca594326638f50b66fa084119",
+          "size": 1966048,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.5.6/initial_firmware_v1.5.6.bin"
+        },
+        {
+          "kind": "upgrade",
+          "name": "specter_upgrade_v1.5.6.bin",
+          "sha256": "4d25c2e0ad4fe215cb21d36d062a0a63fc97d8c7bd40f6187145b2dace42e671",
+          "size": 1251640,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.5.6/specter_upgrade_v1.5.6.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.5.5",
+      "date": "2021-06-18T12:34:53Z",
+      "prerelease": false,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.5.5",
+      "authenticity": "upstream-signed-manifest",
+      "signer": "stepan",
+      "manifest": "signatures/v1.5.5/sha256.signed.txt",
+      "files": [
+        {
+          "kind": "initial",
+          "name": "initial_firmware_v1.5.5.bin",
+          "sha256": "1ad6a811a7d6097578dc9e783b7e46375c130835cff71c068d0313dfc71638a0",
+          "size": 1966048,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.5.5/initial_firmware_v1.5.5.bin"
+        },
+        {
+          "kind": "upgrade",
+          "name": "specter_upgrade_v1.5.5.bin",
+          "sha256": "f6ec7ce9682b9d1866ba7bf727d0ff936ebc4f2a91cad68674f158457a0e0648",
+          "size": 1251096,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.5.5/specter_upgrade_v1.5.5.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.5.4",
+      "date": "2021-05-25T16:11:53Z",
+      "prerelease": false,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.5.4",
+      "authenticity": "upstream-signed-manifest",
+      "signer": "stepan",
+      "manifest": "signatures/v1.5.4/sha256.signed.txt",
+      "files": [
+        {
+          "kind": "initial",
+          "name": "initial_firmware_v1.5.4.bin",
+          "sha256": "9d14ea9eea3aa649c59851ff45c9763d0b834e786aa7a3f6d029e7435c123897",
+          "size": 1966048,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.5.4/initial_firmware_v1.5.4.bin"
+        },
+        {
+          "kind": "upgrade",
+          "name": "specter_upgrade_v1.5.4.bin",
+          "sha256": "f4db84612167ec03ad0813d1237125641135ccc765385bcbfcf4bd48c18f8bd2",
+          "size": 1218008,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.5.4/specter_upgrade_v1.5.4.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.5.3",
+      "date": "2021-04-29T15:25:47Z",
+      "prerelease": false,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.5.3",
+      "authenticity": "upstream-signed-manifest",
+      "signer": "stepan",
+      "manifest": "signatures/v1.5.3/sha256.signed.txt",
+      "files": [
+        {
+          "kind": "initial",
+          "name": "initial_firmware_v1.5.3.bin",
+          "sha256": "0142845d27a307a397ab3ea70eb1f0fa907313c0b164094901b7bb583e40485d",
+          "size": 1966048,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.5.3/initial_firmware_v1.5.3.bin"
+        },
+        {
+          "kind": "upgrade",
+          "name": "specter_upgrade_v1.5.3.bin",
+          "sha256": "f405897436a4f4c476a96166c7ca683b2eb5e03b4bc907f23e61c9e77adee869",
+          "size": 1193608,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.5.3/specter_upgrade_v1.5.3.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.5.2",
+      "date": "2021-04-08T11:35:12Z",
+      "prerelease": false,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.5.2",
+      "authenticity": "upstream-signed-manifest",
+      "signer": "stepan",
+      "manifest": "signatures/v1.5.2/sha256.signed.txt",
+      "files": [
+        {
+          "kind": "initial",
+          "name": "initial_firmware_v1.5.2.bin",
+          "sha256": "dcddc86dc9f5e7fdc9f8a0db4d68dfd9868065f1486fbb4871faab774a256f1f",
+          "size": 1966048,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.5.2/initial_firmware_v1.5.2.bin"
+        },
+        {
+          "kind": "upgrade",
+          "name": "specter_upgrade_v1.5.2.bin",
+          "sha256": "f1ae020a28ffd7c9452e2eb82f6ea1b1696be6f1249d577d0e1977da62a85980",
+          "size": 1189904,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.5.2/specter_upgrade_v1.5.2.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.5.1",
+      "date": "2021-03-26T09:50:11Z",
+      "prerelease": false,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.5.1",
+      "authenticity": "upstream-signed-manifest",
+      "signer": "stepan",
+      "manifest": "signatures/v1.5.1/sha256.signed.txt",
+      "files": [
+        {
+          "kind": "initial",
+          "name": "initial_firmware_v1.5.1.bin",
+          "sha256": "af15bd8b5a5fa87c358de09e5b016a6f67676f896f6e8ed76ab5b952fad916e1",
+          "size": 1966048,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.5.1/initial_firmware_v1.5.1.bin"
+        },
+        {
+          "kind": "upgrade",
+          "name": "specter_upgrade_v1.5.1.bin",
+          "sha256": "bc4f74fced773c9e2bb7dae75aeff4a0cca3b5e363d83b9807eea7cea0b5d301",
+          "size": 1182912,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.5.1/specter_upgrade_v1.5.1.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.5.0",
+      "date": "2021-03-25T15:45:50Z",
+      "prerelease": false,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.5.0",
+      "authenticity": "upstream-signed-manifest",
+      "signer": "stepan",
+      "manifest": "signatures/v1.5.0/sha256.signed.txt",
+      "files": [
+        {
+          "kind": "initial",
+          "name": "initial_firmware_v1.5.0.bin",
+          "sha256": "a2e346d10c59b6c7894822b82778044e3434570c790430834e461b9b0fdc2a17",
+          "size": 1966048,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.5.0/initial_firmware_v1.5.0.bin"
+        },
+        {
+          "kind": "upgrade",
+          "name": "specter_upgrade_v1.5.0.bin",
+          "sha256": "23a19f509b7bfe22c9328cc77f2cc70134893ab2ab40618564ec38068e0f3d61",
+          "size": 1182912,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.5.0/specter_upgrade_v1.5.0.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.4.7",
+      "date": "2021-03-22T10:10:51Z",
+      "prerelease": false,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.4.7",
+      "authenticity": "upstream-signed-manifest",
+      "signer": "stepan",
+      "manifest": "signatures/v1.4.7/sha256.signed.txt",
+      "files": [
+        {
+          "kind": "initial",
+          "name": "initial_firmware_v1.4.7.bin",
+          "sha256": "dd94009a3eff6960621b0fd857f3480b070ea511b876320c8905ad961d7404cf",
+          "size": 1966048,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.4.7/initial_firmware_v1.4.7.bin"
+        },
+        {
+          "kind": "upgrade",
+          "name": "specter_upgrade_v1.4.7.bin",
+          "sha256": "5661de2307ca27501053c7b752f75a13c03bfc663b22cb1b00e303dc828bfab2",
+          "size": 1143248,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.4.7/specter_upgrade_v1.4.7.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.4.6",
+      "date": "2021-03-19T15:16:49Z",
+      "prerelease": false,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.4.6",
+      "authenticity": "upstream-signed-manifest",
+      "signer": "stepan",
+      "manifest": "signatures/v1.4.6/sha256.signed.txt",
+      "files": [
+        {
+          "kind": "initial",
+          "name": "initial_firmware_v1.4.6.bin",
+          "sha256": "e32e96232de5ab13bcda88507d31e9750c6334dc07c3d3f28bead47b128fd4e3",
+          "size": 1966048,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.4.6/initial_firmware_v1.4.6.bin"
+        },
+        {
+          "kind": "upgrade",
+          "name": "specter_upgrade_v1.4.6.bin",
+          "sha256": "10cd0de987579c026937fd5ac71ee76385521b10328e6fe13dcf8a8a00880407",
+          "size": 1142744,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.4.6/specter_upgrade_v1.4.6.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.4.5",
+      "date": "2021-02-02T07:08:09Z",
+      "prerelease": false,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.4.5",
+      "authenticity": "upstream-signed-manifest",
+      "signer": "stepan",
+      "manifest": "signatures/v1.4.5/sha256.signed.txt",
+      "files": [
+        {
+          "kind": "initial",
+          "name": "initial_firmware_v1.4.5.bin",
+          "sha256": "455971918b25a317b7d4b13a00d89fc07aaef5e98ed31ad26656408ee76e0456",
+          "size": 1966048,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.4.5/initial_firmware_v1.4.5.bin"
+        },
+        {
+          "kind": "upgrade",
+          "name": "specter_upgrade_v1.4.5.bin",
+          "sha256": "f29924ca00e87d435233063b5393d095c9eedf4367df3f663fa5458173297222",
+          "size": 1137176,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.4.5/specter_upgrade_v1.4.5.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.4.4",
+      "date": "2021-01-20T13:52:52Z",
+      "prerelease": false,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.4.4",
+      "authenticity": "upstream-signed-manifest",
+      "signer": "stepan",
+      "manifest": "signatures/v1.4.4/sha256.signed.txt",
+      "files": [
+        {
+          "kind": "initial",
+          "name": "initial_firmware_v1.4.4.bin",
+          "sha256": "a25c354d68062ce209a879b78ed8644a40f69df24b6ebdbe339f98e9d1f0df4b",
+          "size": 1966048,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.4.4/initial_firmware_v1.4.4.bin"
+        },
+        {
+          "kind": "upgrade",
+          "name": "specter_upgrade_v1.4.4.bin",
+          "sha256": "1f9f7d1b793558989ef3c1598196605cb8eb543d4d6c1b4c2b7488b468e5d4e2",
+          "size": 1132800,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.4.4/specter_upgrade_v1.4.4.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.4.3",
+      "date": "2021-01-20T12:17:56Z",
+      "prerelease": false,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.4.3",
+      "authenticity": "upstream-signed-manifest",
+      "signer": "stepan",
+      "manifest": "signatures/v1.4.3/sha256.signed.txt",
+      "files": [
+        {
+          "kind": "initial",
+          "name": "initial_firmware_v1.4.3.bin",
+          "sha256": "df705ebd7abcb83a9fdb07e9f6c64a5162976599cdb578c227fb04f58dd27a32",
+          "size": 1966048,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.4.3/initial_firmware_v1.4.3.bin"
+        },
+        {
+          "kind": "upgrade",
+          "name": "specter_upgrade_v1.4.3.bin",
+          "sha256": "42348b55b1be5fb2562fb68be9250cb17cdebe12bf0f35e7d133ced4243f44b8",
+          "size": 1132600,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.4.3/specter_upgrade_v1.4.3.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.4.2",
+      "date": "2020-12-08T13:23:03Z",
+      "prerelease": false,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.4.2",
+      "authenticity": "upstream-signed-manifest",
+      "signer": "stepan",
+      "manifest": "signatures/v1.4.2/sha256.signed.txt",
+      "files": [
+        {
+          "kind": "initial",
+          "name": "initial_firmware_v1.4.2.bin",
+          "sha256": "e5fc3314067f608a8768e973a6fc22102a576d632d33c2e6ff2e7848c2012591",
+          "size": 1966048,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.4.2/initial_firmware_v1.4.2.bin"
+        },
+        {
+          "kind": "upgrade",
+          "name": "specter_upgrade_v1.4.2.bin",
+          "sha256": "5e3140ba1583ddf7f498f122f7930f032d5981cec5f2e46a0b0b147798bd317b",
+          "size": 1128624,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.4.2/specter_upgrade_v1.4.2.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.4.1",
+      "date": "2020-11-26T13:44:02Z",
+      "prerelease": false,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.4.1",
+      "authenticity": "upstream-signed-manifest",
+      "signer": "stepan",
+      "manifest": "signatures/v1.4.1/sha256.signed.txt",
+      "files": [
+        {
+          "kind": "initial",
+          "name": "initial_firmware_v1.4.1.bin",
+          "sha256": "087a3f0f0bfbf07ed4519b923f417114e925deb9d3c42eab2dee1545e97f927c",
+          "size": 1966048,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.4.1/initial_firmware_v1.4.1.bin"
+        },
+        {
+          "kind": "upgrade",
+          "name": "specter_upgrade_v1.4.1.bin",
+          "sha256": "b6957210028ef334ea77b6394f574ab6db6b61d17feb72c70e2eb4bd958f594c",
+          "size": 1128320,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.4.1/specter_upgrade_v1.4.1.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.4.0",
+      "date": "2020-11-26T11:35:12Z",
+      "prerelease": false,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.4.0",
+      "authenticity": "upstream-signed-manifest",
+      "signer": "stepan",
+      "manifest": "signatures/v1.4.0/sha256.signed.txt",
+      "files": [
+        {
+          "kind": "initial",
+          "name": "initial_firmware_v1.4.0.bin",
+          "sha256": "2d1405bb5924d9f66f3ccbb06a78e442693182785bbb140607c94dc10581a3c6",
+          "size": 1966048,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.4.0/initial_firmware_v1.4.0.bin"
+        },
+        {
+          "kind": "upgrade",
+          "name": "specter_upgrade_v1.4.0.bin",
+          "sha256": "2ffdd57b9270767e9f81a14cee7720e41f9761d387a4c67815e9565652295fa8",
+          "size": 1128120,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.4.0/specter_upgrade_v1.4.0.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.4.0-pre2",
+      "date": "2020-10-21T14:21:44Z",
+      "prerelease": true,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.4.0-pre2",
+      "authenticity": "unsigned-legacy",
+      "signer": null,
+      "manifest": null,
+      "files": [
+        {
+          "kind": "legacy",
+          "name": "specter-diy.bin",
+          "sha256": "aec6c692bc51f86bc7240fb3758dd555d553120fa14beb405c3c8751ffe8a809",
+          "size": 1237180,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.4.0-pre2/specter-diy.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.4.0-pre1",
+      "date": "2020-10-19T09:09:58Z",
+      "prerelease": true,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.4.0-pre1",
+      "authenticity": "unsigned-legacy",
+      "signer": null,
+      "manifest": null,
+      "files": [
+        {
+          "kind": "legacy",
+          "name": "specter-diy.bin",
+          "sha256": "ca5c9e4731bdb7c3ae0f5865765c88f28341f1b6678f001375589b5cf92b9cf6",
+          "size": 1238768,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.4.0-pre1/specter-diy.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.3.0",
+      "date": "2020-09-17T18:48:42Z",
+      "prerelease": false,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.3.0",
+      "authenticity": "unsigned-legacy",
+      "signer": null,
+      "manifest": null,
+      "files": [
+        {
+          "kind": "legacy",
+          "name": "specter-diy.bin",
+          "sha256": "951ae53353b0d4f92c1d01d850cd0372a0333fa35ce93a8489b111e34330970d",
+          "size": 1222740,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.3.0/specter-diy.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.2.0",
+      "date": "2020-07-04T16:24:34Z",
+      "prerelease": false,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.2.0",
+      "authenticity": "unsigned-legacy",
+      "signer": null,
+      "manifest": null,
+      "files": [
+        {
+          "kind": "legacy",
+          "name": "specter-diy.bin",
+          "sha256": "759d481dc045f19cbb830c80f41240c7e8320c9a6871680b3d1acf339acc5b13",
+          "size": 1205988,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.2.0/specter-diy.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.1.0",
+      "date": "2020-05-11T16:42:15Z",
+      "prerelease": false,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.1.0",
+      "authenticity": "unsigned-legacy",
+      "signer": null,
+      "manifest": null,
+      "files": [
+        {
+          "kind": "legacy",
+          "name": "specter-diy.bin",
+          "sha256": "fabb8a03b35e5b1992f933471381b6d263295a748fbc1ac83807bb6c182be07e",
+          "size": 1167240,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.1.0/specter-diy.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.0.2",
+      "date": "2020-03-09T11:28:54Z",
+      "prerelease": false,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.0.2",
+      "authenticity": "unsigned-legacy",
+      "signer": null,
+      "manifest": null,
+      "files": [
+        {
+          "kind": "legacy",
+          "name": "specter-diy.bin",
+          "sha256": "56ec507531e99082dd9c1401c39f832e85088df1f7890b3ac76d2b896cc97f8d",
+          "size": 1152264,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.0.2/specter-diy.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.0.1",
+      "date": "2020-02-29T03:31:46Z",
+      "prerelease": false,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.0.1",
+      "authenticity": "unsigned-legacy",
+      "signer": null,
+      "manifest": null,
+      "files": [
+        {
+          "kind": "legacy",
+          "name": "specter-diy.bin",
+          "sha256": "bee56b946e72600cd74b1b340fca495a6db1549573196adf817f03e168593392",
+          "size": 1051784,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.0.1/specter-diy.bin"
+        }
+      ]
+    },
+    {
+      "tag": "v1.0.0",
+      "date": "2020-02-26T17:42:08Z",
+      "prerelease": false,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/v1.0.0",
+      "authenticity": "unsigned-legacy",
+      "signer": null,
+      "manifest": null,
+      "files": [
+        {
+          "kind": "legacy",
+          "name": "specter-diy.bin",
+          "sha256": "7b27e0a0a6703b37cce7bdf3d39aa33adfa04247f27ec24a18b06273c41efb4f",
+          "size": 1050120,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/v1.0.0/specter-diy.bin"
+        }
+      ]
+    },
+    {
+      "tag": "0.0.5",
+      "date": "2019-11-19T15:39:11Z",
+      "prerelease": true,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/0.0.5",
+      "authenticity": "unsigned-legacy",
+      "signer": null,
+      "manifest": null,
+      "files": [
+        {
+          "kind": "legacy",
+          "name": "specter-diy.bin",
+          "sha256": "b03b12f673d8c134120c07fbd77d17e193bfce9ff8d75c3c7ce01594ae9de083",
+          "size": 993216,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/0.0.5/specter-diy.bin"
+        }
+      ]
+    },
+    {
+      "tag": "0.0.4-alpha",
+      "date": "2019-10-29T14:13:20Z",
+      "prerelease": true,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/0.0.4-alpha",
+      "authenticity": "unsigned-legacy",
+      "signer": null,
+      "manifest": null,
+      "files": [
+        {
+          "kind": "legacy",
+          "name": "specter-diy.bin",
+          "sha256": "5e27f503b8d4e1db96cd3d92d2f06e88d6afeb87344d4642d7df1201d9983e07",
+          "size": 598164,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/0.0.4-alpha/specter-diy.bin"
+        }
+      ]
+    },
+    {
+      "tag": "0.0.3-alpha",
+      "date": "2019-09-26T13:39:41Z",
+      "prerelease": true,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/0.0.3-alpha",
+      "authenticity": "unsigned-legacy",
+      "signer": null,
+      "manifest": null,
+      "files": [
+        {
+          "kind": "legacy",
+          "name": "specter-diy.bin",
+          "sha256": "97b98e75a71bfae1e19a218faf0b45d909df0f3262c99c6084693518ba60d7ab",
+          "size": 596756,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/0.0.3-alpha/specter-diy.bin"
+        }
+      ]
+    },
+    {
+      "tag": "0.0.2-alpha",
+      "date": "2019-09-23T15:17:10Z",
+      "prerelease": true,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/0.0.2-alpha",
+      "authenticity": "unsigned-legacy",
+      "signer": null,
+      "manifest": null,
+      "files": [
+        {
+          "kind": "legacy",
+          "name": "specter-diy.bin",
+          "sha256": "1195eabe718bf7ca985c8629ecda13a891b0ec88dbac366038e365f425ec1007",
+          "size": 590156,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/0.0.2-alpha/specter-diy.bin"
+        }
+      ]
+    },
+    {
+      "tag": "0.0.1-alpha",
+      "date": "2019-09-22T22:54:24Z",
+      "prerelease": true,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/0.0.1-alpha",
+      "authenticity": "unsigned-legacy",
+      "signer": null,
+      "manifest": null,
+      "files": [
+        {
+          "kind": "legacy",
+          "name": "specter-diy.bin",
+          "sha256": "0838cd0303cfc99fce639c162bc37209dcdd998037c318f713975d9747df5605",
+          "size": 584740,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/0.0.1-alpha/specter-diy.bin"
+        }
+      ]
+    },
+    {
+      "tag": "0.0.0-alpha.2",
+      "date": "2019-09-06T16:57:43Z",
+      "prerelease": true,
+      "url": "https://github.com/cryptoadvance/specter-diy/releases/tag/0.0.0-alpha.2",
+      "authenticity": "unsigned-legacy",
+      "signer": null,
+      "manifest": null,
+      "files": [
+        {
+          "kind": "legacy",
+          "name": "specter-diy.bin",
+          "sha256": "f38ba66cfa996bc20a3d579d854dfea83729b45277ec3b8d22d487828356dc8e",
+          "size": 395996,
+          "url": "https://github.com/cryptoadvance/specter-diy/releases/download/0.0.0-alpha.2/specter-diy.bin"
+        }
+      ]
+    }
+  ]
+}

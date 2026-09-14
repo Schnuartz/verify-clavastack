@@ -1,0 +1,12 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+df705ebd7abcb83a9fdb07e9f6c64a5162976599cdb578c227fb04f58dd27a32  ./initial_firmware_v1.4.3.bin
+42348b55b1be5fb2562fb68be9250cb17cdebe12bf0f35e7d133ced4243f44b8  ./specter_upgrade_v1.4.3.bin
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARMIAB0WIQRvFuNU+DOT1uUuwl827TV6skuRXwUCYAgfKQAKCRA27TV6skuR
+XwlQAP4jS9daxGWbNtPnd++j957vgyWtzPUmgaIJcFkHbOQbIQEA7X6XQyY6QXDF
+mXERupiiOgO8sp0R/NWE/st2/D0KskE=
+=+rC2
+-----END PGP SIGNATURE-----

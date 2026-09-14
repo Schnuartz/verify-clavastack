@@ -1,0 +1,13 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+eb2cd068f08e20e65ca364676949ecf2b4da8e6efd1fea43af25656c7eadcc36  initial_firmware_v1.8.0.bin
+b43a77b21ec890ff40ad1c65e94f1df9aee5207c5b9ee1e8693040401548a379  specter_upgrade_v1.8.0.bin
+c44c1dab2b1bbd3bed85a8cb9bd6e27940af970ba22d9577ad8da4e55d243d3e  signatures.txt
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARMIAB0WIQRvFuNU+DOT1uUuwl827TV6skuRXwUCY0wiRAAKCRA27TV6skuR
+X8jqAQC0d0R2F1aSyrIvHoOY5roCMfpEah0rfdG5mbGsOWXn8wD9FO0jbH67NKOs
+zYrSz1UT/Gqrwh7s5ca1WClnlKTqkhc=
+=VoV/
+-----END PGP SIGNATURE-----
