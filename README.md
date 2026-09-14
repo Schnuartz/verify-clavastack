@@ -11,6 +11,8 @@ The user flow follows the four-step structure of [Bitsaga's SeedSigner verifier]
 3. Hash a user-selected `.bin` locally in 4 MiB chunks. Match against the pinned catalog of all upstream releases. The file never leaves the browser.
 4. Show case-specific instructions for the five Specter 1 variants, including a marked JP2/STLK photograph. Specter 2 is a coming-soon panel linked to the existing ClavaStack newsletter.
 
+The three detail levels do not change the cryptographic check: **Easy** shows the essentials; **Advanced** additionally exposes hashes, release facts and trust boundaries; **Cypherpunk** additionally gives commands for independent signature/file checks. The header's `i` button explains this on the page.
+
 The page checks `https://api.github.com/repos/cryptoadvance/specter-diy/releases/latest` when loaded. If GitHub reports a newer release than the locally verified catalog, it stops recommending the older binary as “latest” and points to GitHub. If the live request fails, the status is explicitly unconfirmed.
 
 ## Trust boundary
@@ -38,7 +40,11 @@ python tools/check_catalog.py
 
 This refreshes the data and signed-manifest copies; it does not push, publish or deploy. For a new signing identity, review its independent publication source and deliberately add its fingerprint to `tools/update_releases.py` before running. Never silently treat a new key as trusted.
 
-The included GitHub Actions workflow checks upstream daily and commits a catalog change only when all manifests still validate. A new or unexpected signing key causes the workflow to fail closed; it does not silently trust the release. The page also checks GitHub live on every visit, so it warns immediately if a newer release has appeared before the next catalog refresh.
+The included GitHub Actions workflow checks upstream daily and commits a catalog change only when all manifests still validate. It discovers the actual signer from each manifest among pinned public keys, so new releases from those signers need no manual version-number edits. It refreshes the checked timestamp at least every 30 days even if no release has changed, reducing the risk of GitHub disabling this public repository's schedule for inactivity. A genuinely new signing key, changed asset naming, upstream outage or disabled GitHub Actions schedule still requires attention; it never silently trusts a new key. The page checks GitHub live on every visit and warns immediately if a newer release has appeared before the next catalog refresh. See [GitHub's schedule limitations](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule).
+
+## Site-source signing
+
+Bitsaga also signs a manifest of its own website files. `tools/make_site_manifest.py` provides the equivalent deterministic manifest and check here, but **this ClavaStack site is not yet PGP-signed**: no owner-controlled secret key is available. [SIGNING.md](SIGNING.md) explains the independent fingerprint and signing steps, including the conflict between a full-site signature and automatic catalog changes. Do not present upstream firmware signatures as a signature of this website.
 
 ## Credits and assets
 
@@ -48,3 +54,5 @@ The included GitHub Actions workflow checks upstream daily and commits a catalog
 - The Metal assembly video is from the [Specter Wallet YouTube channel](https://www.youtube.com/watch?v=qKhnB6VP4jA). It is embedded only after a user clicks to load it.
 
 This is not the official Specter Association firmware site. Review the upstream release notes before changing a device that protects real funds.
+
+The original code and documentation in this repository are [MIT-licensed](LICENSE); product photographs and third-party assets retain their own ownership and licenses.

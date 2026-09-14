@@ -6,6 +6,8 @@ The browser reads a user-selected file locally, calculates SHA-256 in chunks, an
 
 This establishes a chain *if* the code, catalog, signer-key mapping and site delivery are trustworthy. A compromised site could change both code and expected hashes. A publisher-signed release can still have security bugs. No web page can prove the physical hardware is untampered, prove a signing key was held safely, or prove a binary corresponds to source unless you independently reproduce the build.
 
+The upstream Specter firmware manifests are signed; the ClavaStack website source is **not yet signed with a separate ClavaStack PGP key**. The [site-signing procedure](SIGNING.md) is prepared but needs an owner-controlled key and a separately published fingerprint. Do not infer that a green file result authenticates the page itself.
+
 ## Verify without trusting this page
 
 1. Get the release asset and `sha256.signed.txt` directly from [Specter's official GitHub releases](https://github.com/cryptoadvance/specter-diy/releases).

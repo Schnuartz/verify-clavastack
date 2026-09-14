@@ -15,11 +15,11 @@ import re
 import subprocess
 import tempfile
 import urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-API = "https://api.github.com/repos/cryptoadvance/specter-diy/releases?per_page=100"
+API = "https://api.github.com/repos/cryptoadvance/specter-diy/releases"
 UPSTREAM = "https://github.com/cryptoadvance/specter-diy"
 KEYS = {
     "stepan": {
@@ -56,22 +56,31 @@ def fetch_digest(url: str) -> str:
     return digest.hexdigest()
 
 
-def key_for(tag: str) -> str:
-    if tag == "v1.10.5":
-        return "mike"
-    if tag == "v1.10.3":
-        return "specter2026"
-    return "stepan"
-
-
-def verify_manifest(gpg_home: Path, path: Path, expected: str) -> None:
+def verify_manifest(gpg_home: Path, path: Path, expected: str | None = None) -> str:
     proc = subprocess.run(
         ["gpg", "--homedir", str(gpg_home), "--batch", "--no-tty", "--status-fd", "1", "--verify", str(path)],
         capture_output=True, text=True, errors="replace", check=False,
     )
     valid = re.findall(r"^\[GNUPG:\] VALIDSIG ([0-9A-F]+)", proc.stdout, re.M)
-    if proc.returncode or expected not in valid:
+    if proc.returncode or len(valid) != 1 or (expected is not None and expected != valid[0]):
         raise RuntimeError(f"Signature validation failed for {path.name}: {proc.stdout} {proc.stderr}")
+    return valid[0]
+
+
+def fetch_releases() -> list[dict]:
+    releases = []
+    for page in range(1, 21):
+        batch = json.loads(fetch(f"{API}?per_page=100&page={page}"))
+        if not isinstance(batch, list):
+            raise RuntimeError("Unexpected GitHub release response")
+        releases.extend(batch)
+        if len(batch) < 100:
+            break
+    else:
+        raise RuntimeError("Release pagination exceeded safety limit")
+    if len(releases) < 41 or len({item["tag_name"] for item in releases}) != len(releases):
+        raise RuntimeError("Upstream release list is unexpectedly short or contains duplicate tags")
+    return releases
 
 
 def hashes_from_manifest(data: bytes) -> dict[str, str]:
@@ -93,9 +102,7 @@ def hashes_from_manifest(data: bytes) -> dict[str, str]:
 
 
 def main() -> None:
-    releases = json.loads(fetch(API))
-    if not isinstance(releases, list) or len(releases) < 30:
-        raise RuntimeError("Upstream release list is unexpectedly short")
+    releases = fetch_releases()
     (ROOT / "keys").mkdir(exist_ok=True)
     (ROOT / "signatures").mkdir(exist_ok=True)
     key_files = {}
@@ -103,7 +110,8 @@ def main() -> None:
         gpg_home = Path(temp) / "gnupg"
         gpg_home.mkdir()
         for name, spec in KEYS.items():
-            key_data = fetch(spec["url"])
+            committed_key = ROOT / "keys" / f"{name}.asc"
+            key_data = committed_key.read_bytes() if committed_key.is_file() else fetch(spec["url"])
             path = Path(temp) / f"{name}.asc"
             path.write_bytes(key_data)
             proc = subprocess.run(["gpg", "--homedir", str(gpg_home), "--batch", "--import", str(path)], capture_output=True, text=True, errors="replace")
@@ -130,11 +138,13 @@ def main() -> None:
                 "files": [],
             }
             if "sha256.signed.txt" in assets:
-                key_name = key_for(tag)
                 signed = fetch(assets["sha256.signed.txt"]["browser_download_url"])
                 path = Path(temp) / f"{tag}-sha256.signed.txt"
                 path.write_bytes(signed)
-                verify_manifest(gpg_home, path, KEYS[key_name]["fingerprint"])
+                fingerprint = verify_manifest(gpg_home, path)
+                key_name = next((name for name, spec in KEYS.items() if spec["fingerprint"] == fingerprint), None)
+                if key_name is None:
+                    raise RuntimeError(f"Unrecognized manifest signer for {tag}: {fingerprint}")
                 hashes = hashes_from_manifest(signed)
                 for kind, prefix in (("initial", "initial_firmware_"), ("upgrade", "specter_upgrade_")):
                     name = f"{prefix}{tag}.bin"
@@ -182,7 +192,9 @@ def main() -> None:
         try:
             previous = json.loads(existing_path.read_text(encoding="utf-8"))
             if all(previous.get(field) == result[field] for field in ("schema", "source", "keys", "releases")):
-                result["generatedAt"] = previous["generatedAt"]
+                age = datetime.now(timezone.utc) - datetime.fromisoformat(previous["generatedAt"])
+                if timedelta(0) <= age < timedelta(days=30):
+                    result["generatedAt"] = previous["generatedAt"]
         except (OSError, ValueError, KeyError, TypeError):
             pass
     (ROOT / "release.json").write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

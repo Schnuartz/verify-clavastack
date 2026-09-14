@@ -9,14 +9,14 @@ import subprocess
 import tempfile
 from pathlib import Path
 
-from update_releases import ROOT, KEYS, hashes_from_manifest, key_for, verify_manifest
+from update_releases import ROOT, KEYS, hashes_from_manifest, verify_manifest
 
 
 def main() -> None:
     data = json.loads((ROOT / "release.json").read_text(encoding="utf-8"))
     releases = data["releases"]
     assert data["schema"] == 1
-    assert len(releases) == 41, "Review upstream release count changes before updating this assertion"
+    assert len(releases) >= 41, "Catalog lost previously known releases"
     assert len({item["tag"] for item in releases}) == len(releases)
     signed = 0
     unsigned = 0
@@ -35,7 +35,7 @@ def main() -> None:
             assert item["files"]
             if item["authenticity"] == "upstream-signed-manifest":
                 signed += 1
-                assert item["signer"] == key_for(tag)
+                assert item["signer"] in KEYS
                 assert item["manifest"] == f"signatures/{tag}/sha256.signed.txt"
                 path = ROOT / item["manifest"]
                 assert path.is_file()
@@ -53,8 +53,10 @@ def main() -> None:
                 assert re.fullmatch(r"[0-9a-f]{64}", file["sha256"])
                 assert file["size"] > 0
                 assert file["url"] == f"https://github.com/cryptoadvance/specter-diy/releases/download/{tag}/{file['name']}"
-    assert signed == 27 and unsigned == 14
-    assert releases[0]["tag"] == "v1.10.5"
+    assert signed >= 27 and unsigned >= 14
+    stable = [item["tag"] for item in releases if not item["prerelease"] and re.fullmatch(r"v\d+\.\d+\.\d+", item["tag"])]
+    assert stable
+    assert stable[0] == max(stable, key=lambda tag: tuple(map(int, tag[1:].split("."))))
     print(f"OK: {len(releases)} releases, {signed} verified OpenPGP manifests, {unsigned} unsigned historical releases")
 
 
