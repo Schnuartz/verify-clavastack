@@ -5,6 +5,11 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
+    inputs:
+      expected_sha:
+        description: 'Commit expected by the catalog refresh workflow'
+        required: false
+        type: string
 
 permissions:
   contents: read
@@ -14,6 +19,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Confirm the dispatched commit
+        if: github.event_name == 'workflow_dispatch' && inputs.expected_sha != ''
+        env:
+          EXPECTED_SHA: ${{ inputs.expected_sha }}
+        run: test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
