@@ -12,8 +12,7 @@ jobs:
   deploy:
     if: >-
       ${{ github.event.workflow_run.conclusion == 'success' &&
-          (github.event.workflow_run.event == 'push' ||
-           github.event.workflow_run.event == 'workflow_dispatch') &&
+          github.event.workflow_run.event == 'push' &&
           github.event.workflow_run.head_branch == 'main' &&
           github.event.workflow_run.head_repository.full_name == github.repository }}
     runs-on: ubuntu-latest
@@ -26,22 +25,4 @@ jobs:
         env:
           VALIDATED_SHA: ${{ github.event.workflow_run.head_sha }}
           HOSTINGER_DEPLOY_WEBHOOK: ${{ secrets.HOSTINGER_DEPLOY_WEBHOOK }}
-        run: |
-          if [ -z "$HOSTINGER_DEPLOY_WEBHOOK" ]; then
-            echo '::warning::Hostinger webhook is not configured; no site was deployed.'
-            echo 'Deployment skipped: configure the HOSTINGER_DEPLOY_WEBHOOK secret after the first Hostinger Git deployment.' >> "$GITHUB_STEP_SUMMARY"
-            exit 0
-          fi
-          if [ "$(git rev-parse HEAD)" != "$VALIDATED_SHA" ]; then
-            echo 'A newer commit exists; its own validation run will deploy it.'
-            exit 0
-          fi
-          jq -n \
-            --arg ref 'refs/heads/main' \
-            --arg after "$VALIDATED_SHA" \
-            --arg full_name "$GITHUB_REPOSITORY" \
-            '{ref: $ref, after: $after, repository: {full_name: $full_name}}' |
-            curl --fail --show-error --silent --retry 3 \
-              --header 'Content-Type: application/json' \
-              --header 'X-GitHub-Event: push' \
-              --data-binary @- "$HOSTINGER_DEPLOY_WEBHOOK"
+        run: bash tools/deploy_hostinger.sh

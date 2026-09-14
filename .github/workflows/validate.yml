@@ -62,3 +62,17 @@ jobs:
           assert '\u2014' not in script and '\u2013' not in script
           print('OK: product images, favicon, repository link and dash style')
           PY
+  deploy_catalog:
+    if: github.event_name == 'workflow_dispatch' && inputs.expected_sha != ''
+    needs: checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+      - name: Deploy the validated catalog update
+        env:
+          VALIDATED_SHA: ${{ inputs.expected_sha }}
+          HOSTINGER_DEPLOY_WEBHOOK: ${{ secrets.HOSTINGER_DEPLOY_WEBHOOK }}
+        run: bash tools/deploy_hostinger.sh
