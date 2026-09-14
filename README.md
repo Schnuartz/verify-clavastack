@@ -1,6 +1,6 @@
 # Specter firmware verification · ClavaStack
 
-An independent, static, bilingual (German/English) guide for checking and installing [Specter DIY](https://github.com/cryptoadvance/specter-diy) firmware. Maintained in the [ClavaStack owner's repository](https://github.com/Schnuartz/verify-clavastack). The site can be deployed beneath `clavastack.com` as a directory with a trailing slash, for example `/specter-verify/`. A GitHub repository alone does not change the live website or DNS.
+An independent, static, bilingual (German/English) guide for checking and installing [Specter DIY](https://github.com/cryptoadvance/specter-diy) firmware. Maintained in the [ClavaStack owner's repository](https://github.com/Schnuartz/verify-clavastack) and published at [verify.clavastack.com](https://verify.clavastack.com/).
 
 The user flow follows the four-step structure of [Bitsaga's SeedSigner verifier](https://github.com/bitsagarob/seedsigner-verify) (MIT), adapted to Specter's distinct initial-flash and SD-upgrade paths. The layout uses the supplied Specter brand palette and Montserrat heading font. All firmware links go to upstream GitHub; no firmware binary is shipped or uploaded here.
 
@@ -33,13 +33,13 @@ The local page makes one live request to the GitHub releases API for newest-vers
 
 ## Publishing
 
-The static site consists of `index.html`, `app.js`, `style.css`, `release.json`, `assets/`, `vendor/`, `keys/`, `signatures/` and the linked Markdown documents. Serve those files together at a path ending in `/` so relative URLs resolve correctly. Use HTTPS and make sure the web host does not rewrite or cache old `release.json` indefinitely. The included CI workflow checks every committed signed manifest, JavaScript syntax, local image paths and the repository link on pushes and pull requests. Publishing to `clavastack.com` still requires a deployment route from this repository to that host; no secret or custom domain is configured in this repository.
+The static site consists of `index.html`, `app.js`, `style.css`, `release.json`, `assets/`, `vendor/`, `keys/`, `signatures/` and the linked Markdown documents. Serve those files together at a path ending in `/` so relative URLs resolve correctly. Use HTTPS and make sure the web host does not rewrite or cache old `release.json` indefinitely. The included CI workflow checks every committed signed manifest, JavaScript syntax, local image paths and the repository link on pushes and pull requests. The live deployment is configured for Hostinger's `public_html/verify` directory; its webhook URL is stored as the GitHub Actions secret `HOSTINGER_DEPLOY_WEBHOOK`.
 
-GitHub Pages availability depends on repository visibility and the owner's plan. A private GitHub repository on GitHub Free cannot be used for Pages, while a public repository can. Changing visibility or connecting a custom domain is an owner decision; neither is done by these files.
+The repository is public for independent source review, but the production site is served by Hostinger rather than GitHub Pages.
 
 For Hostinger's legacy hPanel Git form on the `clavastack.com` hosting account, connect the `main` branch and set **Install Path to `verify`**, relative to that account's `public_html`. The subdomain's document root was verified in hPanel as `.../domains/clavastack.com/public_html/verify` on 2026-09-14. Do not leave Install Path empty, since that targets the main site's `public_html`. Check the current subdomain mapping before deployment, and remove Hostinger's `default.php` placeholder from `verify` only after confirming there are no user files in that target.
 
-After its first deployment, store Hostinger's auto-deployment webhook URL as the repository Actions secret `HOSTINGER_DEPLOY_WEBHOOK`. The included deployment workflow calls that webhook only after the latest `main` commit passes the catalog and source checks. Never commit the webhook URL or hosting credentials. A successful webhook call only requests a Hostinger deployment; confirm the deployment log and live HTTPS page separately.
+Hostinger's auto-deployment webhook URL is stored as the repository Actions secret `HOSTINGER_DEPLOY_WEBHOOK`. The included deployment workflow calls that webhook only after the latest `main` commit passes the catalog and source checks. Never commit the webhook URL or hosting credentials. A successful webhook call only requests a Hostinger deployment; confirm the deployment log and live HTTPS page separately.
 
 ## Update the release catalog
 
