@@ -24,3 +24,5 @@
 @media(max-width:660px){.mode-help{left:0;right:auto}}
 .footer-brand{display:flex;align-items:center;gap:8px}
 .footer-brand img{object-fit:contain}
+.device-image{aspect-ratio:1/1}
+.device-card:not([data-value="barebone"]) .device-image img{object-fit:cover;object-position:center;padding:0}

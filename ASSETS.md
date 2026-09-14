@@ -6,7 +6,7 @@ The following files are local copies used by the site. Product and brand assets 
 | --- | --- |
 | `assets/barebone.png` | <https://specter.solutions/assets/Specter-DIY-Barebones-DbMUG4wy.png> |
 | `assets/diy-snapcase.png` | <https://clavastack.com/images/diy-product.png> (Specter DIY product image from the shop homepage) |
-| `assets/shield-lite.webp` | <https://clavastack.com/wp-content/uploads/2024/11/Specter-shield-Lite-orange-smartcard-links-Licht_Links_oben_linie-6_8-webp.webp> |
+| `assets/shield-lite-shop.webp` | First gallery image at <https://clavastack.com/products/specter-diy-snapcase>, sourced from <https://clavastack.com/wp-content/uploads/2023/12/specter-diy-black-standing-main-menu-white-bg_Smooth-lighthartlight-webp.webp>. Requested for the Shield Lite card; the shop labels this photograph Specter DIY, so it should not be used to identify hardware or connectors. |
 | `assets/shield.png` | <https://clavastack.com/wp-content/uploads/2022/08/1-1.png> |
 | `assets/shield-metal.webp` | <https://clavastack.com/wp-content/uploads/2025/07/Specter-Shield_Metall-Smartcard-links-smooth-lighthard-light-webp.webp> |
 | `assets/specter-2.png` | <https://clavastack.com/images/newsletter/specter-2-teaser.png> |

@@ -1,6 +1,6 @@
 # Specter firmware verification · ClavaStack
 
-An independent, static, bilingual (German/English) guide for checking and installing [Specter DIY](https://github.com/cryptoadvance/specter-diy) firmware. Designed for later deployment beneath `clavastack.com` as a directory with a trailing slash, for example `/specter-verify/`. No hosting or DNS change is made by this repository.
+An independent, static, bilingual (German/English) guide for checking and installing [Specter DIY](https://github.com/cryptoadvance/specter-diy) firmware. Maintained in the [ClavaStack owner's repository](https://github.com/Schnuartz/verify-clavastack). The site can be deployed beneath `clavastack.com` as a directory with a trailing slash, for example `/specter-verify/`. A GitHub repository alone does not change the live website or DNS.
 
 The user flow follows the four-step structure of [Bitsaga's SeedSigner verifier](https://github.com/bitsagarob/seedsigner-verify) (MIT), adapted to Specter's distinct initial-flash and SD-upgrade paths. The layout uses the supplied Specter brand palette and Montserrat heading font. All firmware links go to upstream GitHub; no firmware binary is shipped or uploaded here.
 
@@ -28,6 +28,14 @@ python -m http.server 8000
 ```
 
 Open `http://localhost:8000/`. No install/build step or package manager is required. A local HTTP server is necessary for `fetch('./release.json')` and module loading; `file://` is not supported.
+
+The local page makes one live request to the GitHub releases API for newest-version status. If that request fails or is rate-limited, it explicitly reports that freshness is unconfirmed. The firmware file remains entirely local.
+
+## Publishing
+
+The static site consists of `index.html`, `app.js`, `style.css`, `release.json`, `assets/`, `vendor/`, `keys/`, `signatures/` and the linked Markdown documents. Serve those files together at a path ending in `/` so relative URLs resolve correctly. Use HTTPS and make sure the web host does not rewrite or cache old `release.json` indefinitely. The included CI workflow checks every committed signed manifest, JavaScript syntax, local image paths and the repository link on pushes and pull requests. Publishing to `clavastack.com` still requires a deployment route from this repository to that host; no secret or custom domain is configured in this repository.
+
+GitHub Pages availability depends on repository visibility and the owner's plan. A private GitHub repository on GitHub Free cannot be used for Pages, while a public repository can. Changing visibility or connecting a custom domain is an owner decision; neither is done by these files.
 
 ## Update the release catalog
 
