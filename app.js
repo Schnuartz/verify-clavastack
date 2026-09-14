@@ -1,8 +1,17 @@
 import { hashFile, selfTest, crossCheck } from './vendor/bitsaga/sha256.js';
 
+const siteRoot = new URL('.', import.meta.url);
+const sitePath = (path) => new URL(path, siteRoot).pathname;
+const languagePath = (lang) => lang === 'de' ? sitePath('de/') : siteRoot.pathname;
+const languageFromUrl = () => {
+  const path = window.location.pathname;
+  const german = languagePath('de');
+  return path === german || path === german.slice(0, -1) || path === sitePath('de/index.html') ? 'de' : 'en';
+};
+
 const app = document.getElementById('app');
 const state = {
-  lang: navigator.language?.toLowerCase().startsWith('de') ? 'de' : 'en',
+  lang: languageFromUrl(),
   mode: 'easy',
   modeInfo: false,
   phase: null,
@@ -228,14 +237,27 @@ function modeSelector() {
   return `<div class="mode-wrap"><div class="mode-switch" role="group" aria-label="${state.lang === 'de' ? 'Detailstufe' : 'Detail level'}">${['easy','advanced','cypherpunk'].map(m => `<button type="button" data-action="mode" data-value="${m}" aria-pressed="${state.mode===m}">${t(m)}</button>`).join('')}</div><button type="button" class="mode-info-button" data-action="modeinfo" aria-label="${t('modeHelpLabel')}" aria-expanded="${state.modeInfo}" aria-controls="mode-help">i</button><div class="mode-help" id="mode-help" role="status" ${state.modeInfo ? '' : 'hidden'}><strong>${t('modeHelpTitle')}</strong><p>${t('modeHelpEasy')}</p><p>${t('modeHelpAdvanced')}</p><p>${t('modeHelpCypherpunk')}</p></div></div>`;
 }
 
+function localizePaths(markup) {
+  return markup
+    .replaceAll('src="assets/', `src="${sitePath('assets/')}`)
+    .replaceAll('href="TRUST.md"', `href="${sitePath('TRUST.md')}"`)
+    .replaceAll('href="signatures/', `href="${sitePath('signatures/')}`);
+}
+
 function render() {
+  document.documentElement.lang = state.lang;
+  document.title = state.lang === 'de' ? 'Specter Firmware prüfen · ClavaStack' : 'Verify Specter firmware · ClavaStack';
+  document.querySelector('meta[name="description"]').content = state.lang === 'de'
+    ? 'Specter DIY Firmware lokal prüfen und sicher installieren. Offizielle Releases, signierte Prüfsummen und Anleitungen für alle Specter-1-Gehäuse.'
+    : 'Verify Specter DIY firmware locally and install it safely. Official releases, signed checksums, and instructions for every Specter 1 case.';
+  document.querySelector('link[rel="canonical"]').href = new URL(languagePath(state.lang), window.location.origin).href;
+  document.querySelector('.skip').textContent = state.lang === 'de' ? 'Zum Inhalt springen' : 'Skip to content';
   if (!state.catalog) {
     app.innerHTML = `<main id="main" class="loading" role="alert">${state.error ? e(state.error) : state.lang === 'de' ? 'Release-Daten werden geladen …' : 'Loading release data …'}</main>`;
     return;
   }
-  document.documentElement.lang = state.lang;
   const pinned = latestPinned();
-  app.innerHTML = `<div class="${modeClass()}">
+  app.innerHTML = localizePaths(`<div class="${modeClass()}">
     <header class="topbar"><div class="topbar-inner"><a class="brand" href="https://clavastack.com" target="_blank" rel="noopener noreferrer" aria-label="ClavaStack · Verify your Specter"><img src="assets/clavastack-logo.png" alt=""><span class="brand-text"><span class="brand-wordmark">ClavaStack</span><span class="brand-sub">Verify your Specter</span></span></a><nav aria-label="${state.lang === 'de' ? 'Schritte' : 'Steps'}"><ol class="steps-nav">${[['download',t('download')],['verify',t('verify')],['install',t('install')],['finish',t('finish')]].map(([id,label],i)=>`<li><a href="#${id}"><b>${i+1}</b>${label}</a></li>`).join('')}</ol></nav><div class="top-actions">${modeSelector()}<div class="lang-switch" role="group" aria-label="Language"><button type="button" data-action="lang" data-value="de" aria-pressed="${state.lang==='de'}">DE</button><button type="button" data-action="lang" data-value="en" aria-pressed="${state.lang==='en'}">EN</button></div></div></div></header>
     <main id="main" class="shell"><section class="hero"><p class="eyebrow">${t('eyebrow')}</p><h1>${t('hero1')}<br><em>${t('hero2')}</em></h1><p class="lead">${t('lead')}</p><div class="meta-line"><span>${t('heroMeta1')}</span><span>${t('heroMeta2')}</span><span>${t('heroMeta3')}</span></div></section>
       <section class="section" id="choose"><h2>${t('startTitle')}</h2><p class="section-intro">${t('startIntro')}</p><div class="question"><p class="question-label">${t('phaseQuestion')}</p><div class="choice-row"><button class="choice-card" type="button" data-action="phase" data-value="new" aria-pressed="${state.phase==='new'}"><strong>${t('phaseNew')}</strong><span>${t('phaseNewSub')}</span></button><button class="choice-card" type="button" data-action="phase" data-value="existing" aria-pressed="${state.phase==='existing'}"><strong>${t('phaseExisting')}</strong><span>${t('phaseExistingSub')}</span></button></div></div>${state.phase==='existing' ? `<div class="question"><label class="question-label" for="current-version">${t('versionQuestion')}</label><p class="small">${t('versionHelp')}</p><select class="version-select" id="current-version"><option value="">${t('versionSkip')}</option>${stable().map(r=>`<option value="${e(r.tag)}" ${state.current===r.tag?'selected':''}>${e(r.tag)}</option>`).join('')}</select></div>` : ''}<p class="generation">${t('generation1')}</p><div class="device-grid">${hardware.map(h=>`<button type="button" class="device-card" data-action="device" data-value="${h.id}" aria-pressed="${state.device===h.id}"><div class="device-image"><img src="assets/${h.image}" alt="${e(h.imageAlt ?? h.label)}" loading="lazy"></div><div class="device-copy"><strong>${e(h.label)}</strong><span>${e(h[state.lang])}</span></div></button>`).join('')}</div><p class="generation">${t('generation2')}</p><div class="gen2"><img src="assets/specter-2.png" alt="Specter 2 teaser" loading="lazy"><div><strong>${t('soon')}</strong><p>${t('soonText')}</p><div class="link-group"><a href="https://clavastack.com/specter-2/newsletter" target="_blank" rel="noopener noreferrer">${t('newsletter')} ↗</a><a href="https://clavastack.com/" target="_blank" rel="noopener noreferrer">${t('mainWebsite')} ↗</a><a href="https://clavastack.com/products" target="_blank" rel="noopener noreferrer">${t('buySpecter')} ↗</a></div></div></div></section>
@@ -244,7 +266,7 @@ function render() {
       <section class="section" id="install"><div class="section-head"><span class="step-number">03</span><h2>${t('step3Title')}</h2></div><p class="section-intro">${t('step3Intro')}</p>${!state.device ? `<p>${t('noDevice')}</p>` : needsInitial() ? initialInstructions() : state.phase==='existing' ? upgradeInstructions() : `<p>${t('chooseFirst')}</p>`}</section>
       <section class="section" id="finish"><div class="section-head"><span class="step-number">04</span><h2>${t('step4Title')}</h2></div><p class="section-intro">${t('step4Intro')}</p>${needsMigration() ? `<div class="note warning">${t('afterMigration')}</div>` : ''}<div class="note" id="proof"><strong>${t('trustTitle')}</strong><br>${t('trustText')} <a href="TRUST.md">${t('proofLink')} ↗</a></div>${archive()}<div class="link-group"><a href="https://github.com/cryptoadvance/specter-diy/releases" target="_blank" rel="noopener noreferrer">${t('official')} ↗</a><a href="TRUST.md">${t('methodology')} ↗</a></div></section>
     </main><footer class="footer"><div class="shell footer-inner"><div><div class="footer-brand"><img src="assets/clavastack-logo.png" alt="" width="23" height="23"><strong>ClavaStack × Specter</strong></div><p>${t('footerText')}</p><p class="status-line">${state.lang==='de'?'Katalog aktualisiert':'Catalog updated'}: ${e(state.catalog.generatedAt?.slice(0,10))} · ${state.catalog.releases.length} Releases · ${state.catalog.releases.filter(r=>r.authenticity==='upstream-signed-manifest').length} ${state.lang==='de'?'signierte Manifeste':'signed manifests'}</p></div><div class="footer-links"><a href="https://github.com/Schnuartz/verify-clavastack" target="_blank" rel="noopener noreferrer">${t('siteSource')} ↗</a><a href="TRUST.md">${t('proofLink')} ↗</a><a href="https://clavastack.com/" target="_blank" rel="noopener noreferrer">ClavaStack ↗</a><a href="https://clavastack.com/products" target="_blank" rel="noopener noreferrer">${t('buySpecter')} ↗</a><a href="https://try.clavastack.com/" target="_blank" rel="noopener noreferrer">${t('simulator')} ↗</a><a href="https://github.com/cryptoadvance/specter-diy" target="_blank" rel="noopener noreferrer">${t('specterGithub')} ↗</a><a href="https://clavastack.com/newsletter" target="_blank" rel="noopener noreferrer">Newsletter ↗</a></div></div></footer>
-  </div>`;
+  </div>`);
 }
 
 async function handleFile(file) {
@@ -267,7 +289,14 @@ app.addEventListener('click', (event) => {
   const button = event.target.closest('[data-action]');
   if (!button) return;
   const action = button.dataset.action, value = button.dataset.value;
-  if (action === 'lang' && ['de','en'].includes(value)) state.lang = value;
+  if (action === 'lang' && ['de','en'].includes(value)) {
+    if (value !== state.lang) {
+      state.lang = value;
+      window.history.pushState(null, '', languagePath(value) + window.location.hash);
+      render();
+    }
+    return;
+  }
   if (action === 'mode' && ['easy','advanced','cypherpunk'].includes(value)) state.mode = value;
   if (action === 'modeinfo') state.modeInfo = !state.modeInfo;
   if (action === 'phase' && ['new','existing'].includes(value)) { state.phase = value; if (value === 'new') state.current = ''; }
@@ -275,6 +304,7 @@ app.addEventListener('click', (event) => {
   if (action === 'video') state.videoLoaded = true;
   render();
 });
+window.addEventListener('popstate', () => { state.lang = languageFromUrl(); render(); });
 app.addEventListener('change', (event) => {
   if (event.target.id === 'current-version') { state.current = event.target.value; render(); }
   if (event.target.id === 'firmware-file') handleFile(event.target.files?.[0]);
@@ -285,7 +315,7 @@ app.addEventListener('drop', (event) => { const zone = event.target.closest('#dr
 
 async function bootstrap() {
   try {
-    const response = await fetch('./release.json', { cache: 'no-store' });
+    const response = await fetch(sitePath('release.json'), { cache: 'no-store' });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const catalog = await response.json();
     if (catalog.schema !== 1 || !Array.isArray(catalog.releases) || catalog.releases.length < 30) throw new Error('Invalid catalog');

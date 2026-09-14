@@ -1,6 +1,6 @@
 # Specter firmware verification · ClavaStack
 
-An independent, static, bilingual (German/English) guide for checking and installing [Specter DIY](https://github.com/cryptoadvance/specter-diy) firmware. Maintained in the [ClavaStack owner's repository](https://github.com/Schnuartz/verify-clavastack) and published at [verify.clavastack.com](https://verify.clavastack.com/).
+An independent, static, bilingual (English/German) guide for checking and installing [Specter DIY](https://github.com/cryptoadvance/specter-diy) firmware. Maintained in the [ClavaStack owner's repository](https://github.com/Schnuartz/verify-clavastack) and published in English at [verify.clavastack.com](https://verify.clavastack.com/) and in German at [verify.clavastack.com/de/](https://verify.clavastack.com/de/). Each language has its own direct URL, canonical URL and `hreflang` links; the language switch updates the address without resetting the current selection.
 
 The user flow follows the four-step structure of [Bitsaga's SeedSigner verifier](https://github.com/bitsagarob/seedsigner-verify) (MIT), adapted to Specter's distinct initial-flash and SD-upgrade paths. The layout uses the supplied Specter brand palette and Montserrat heading font. All firmware links go to upstream GitHub; no firmware binary is shipped or uploaded here.
 
@@ -27,13 +27,13 @@ The 14 older releases and prereleases lack an official signed manifest. Their ha
 python -m http.server 8000
 ```
 
-Open `http://localhost:8000/`. No install/build step or package manager is required. A local HTTP server is necessary for `fetch('./release.json')` and module loading; `file://` is not supported.
+Open `http://localhost:8000/` for English or `http://localhost:8000/de/` for German. No install/build step or package manager is required. A local HTTP server is necessary for catalog fetching and module loading; `file://` is not supported.
 
 The local page makes one live request to the GitHub releases API for newest-version status. If that request fails or is rate-limited, it explicitly reports that freshness is unconfirmed. The firmware file remains entirely local.
 
 ## Publishing
 
-The static site consists of `index.html`, `app.js`, `style.css`, `release.json`, `assets/`, `vendor/`, `keys/`, `signatures/` and the linked Markdown documents. Serve those files together at a path ending in `/` so relative URLs resolve correctly. Use HTTPS. The scoped `.htaccess` asks Hostinger to revalidate site files after each push; the versioned CSS/JS links in `index.html` also break the previous one-week browser cache. `release.json` is fetched with `cache: 'no-store'`. The included CI workflow checks every committed signed manifest, JavaScript syntax, local image paths and the repository link on pushes and pull requests. The live deployment is configured for Hostinger's `public_html/verify` directory; its webhook URL is stored as the GitHub Actions secret `HOSTINGER_DEPLOY_WEBHOOK`.
+The static site consists of `index.html`, `de/index.html`, `app.js`, `style.css`, `release.json`, `assets/`, `vendor/`, `keys/`, `signatures/` and the linked Markdown documents. Serve those files together from the same site root. Use HTTPS. The scoped `.htaccess` asks Hostinger to revalidate site files after each push; the versioned CSS/JS links in both HTML files also break the previous one-week browser cache. `release.json` is fetched with `cache: 'no-store'`. The included CI workflow checks every committed signed manifest, JavaScript syntax, local image paths and the repository link on pushes and pull requests. The live deployment is configured for Hostinger's `public_html/verify` directory; its webhook URL is stored as the GitHub Actions secret `HOSTINGER_DEPLOY_WEBHOOK`.
 
 The repository is public for independent source review, but the production site is served by Hostinger rather than GitHub Pages.
 
